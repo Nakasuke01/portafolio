@@ -5,3 +5,110 @@
     font-weight: 400;
     font-style: normal;
 }
+
+/* Variables Colores */
+:root{
+    --color-principal: #222222;
+    --color-secondary: #F42A55;
+
+    --color-background: #342D2F;
+    --color-transparent: transparent;
+
+    --color-icon: #494B4C;
+    --color-title: #FFFFFF;
+    --color-subtitle: #848986;
+    --color-text: #e2e1e1;
+
+}
+/* Reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100vh;
+    height: 100vh;
+    max-width: 100vh;
+    min-width: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+a{
+    /* Para poder manipular el a */
+    display: block;
+    text-decoration: none;
+}
+
+p a{
+    /* Para los parrafos que tengan un enlace no les ocurra un salto de linea */
+    display: inline;
+    color: inherit;
+}
+
+img,video,iframe, picture,figure{
+    max-width: 100%;
+    /*para poder manipular todo esto */
+    display: block;
+}
+
+form,input,select,textarea,button,label{
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    /* Para poder manipular los elementos de forma mas sencilla */
+    display: block;
+}
+
+
+
+
+/* Estilos Generales */
+
+html{
+    font-size: 10px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color:var(--color-background) ;
+    font-family: "Poppins",Helvetica,sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-text);
+
+    /* Imagen fondo */
+    background-image: url("../img/fondo.png");
+    background-size: cover;
+    background-position: -20px -120px;
+    /* Overflow:hidden; sirve para que elimine el espacio sobrante y no exista el scrill */
+    overflow: hidden;
+}
+
+
+h1,h2,h3,h4,h5,h6,a{
+    color: var(--color-title);
+}
+
