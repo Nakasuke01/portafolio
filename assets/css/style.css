@@ -6,7 +6,7 @@
     width: 75%;
     height: 80vh;
     min-height: 80vh;
-    margin: 10% 13%;
+    margin: 10vh auto;
 
     display: grid;
     grid-template-areas:  
@@ -17,24 +17,20 @@
 
     border-radius: 4rem;
     box-shadow: 0 0 100px -5px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
 }
 
 
-
-
-
-/* Barra lateral azul */
+/* Barra lateral roja */
 
 .layout__aside{
+    position: relative;
     grid-area: aside;
     border-radius: 4rem 0 0 4rem;
-    overflow: auto;
-    /* todo lo que sobresalga de la parte X se oculta */
-    overflow-x: hidden;
+    
 }
 
 .aside__user-info{
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +38,7 @@
 
     min-height: 100%;
     min-width: 30rem;
-
+    border-radius: 2rem 0 0 2rem;
     background-color: var(--color-secondary);
 }
 
@@ -56,19 +52,31 @@
     background-color: var(--color-secondary);
     border: 3px solid var(--color-text);
     border-radius: 3rem;
+    /* Para que no se salga la imagen del contenedor */
     overflow: hidden;
+    z-index: 1;
 }
+/* No se ve porque tengo que tener la imagen redonda */
+.user-info__container-img::after{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 5%;
+    left: 9%;
+    border-radius: 30rem;
+    color: black;
+    background-size: 0.6rem 0.6rem;
+    background-image: -webkit-repeating-radial-gradient(center center, #ffff, #ffff 1px, transparent 0px, transparent 100%);
+}
+/* Fin del no se ve */
 
 .user-info__img{
     width: 100%;
 }
 
-/* Contenedor Principal */
-.layout__content{
-    grid-area: content;
-}
-
-
+/* Datos personales */
 .user-info__name{
     color: var(--color-title);
     font-size: 2.6rem;
@@ -77,7 +85,7 @@
 }
 
 .user-info__job{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 200;
     color: var(--color-text);
 }
@@ -97,7 +105,9 @@
     margin: 0 1rem 0 1rem;
     height: 4rem;
     width: 4rem;
+    /* Dimesion del icono */
     font-size: 2.5rem;
+    /*  */
     line-height: 4rem;
     opacity: 0.9;
 }
@@ -115,7 +125,7 @@
 
 .user-info__btn{
     border: 2px solid var(--color-title);
-    padding: 1.4rem 3rem 1.4rem 3rem;
+    padding: 1.4rem 2rem;
     border-radius: 3rem;
     transition: all 300ms ease-in-out;
     box-shadow: 0 1rem 1rem -0.2rem rgba(0, 0, 0, 0.22);
@@ -132,6 +142,99 @@
     font-size: 1.1rem;
 }
 
+
+/* Contenedor Principal */
+.layout__content{
+    grid-area: content;
+    height: 100%;
+    min-height: 100%;
+    background-color: var(--color-secondary);
+    border-radius:  0 10rem 10rem 0;
+}
+
+.content__page{
+    min-height: 100%;
+    background-color: var(--color-principal);
+    border-radius: 3.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.page__name {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.page__job{
+    font-size: 2.1rem;
+    font-weight: lighter;
+    color: var(--color-subtitles);
+}
+
+/* Menu Navegacion Lateral */
+
 .layout__menu{
+    min-width: 11rem;
+    display: block;
+    position: absolute !important;
+    top: 0;
+    right: -870px;
+    background-color: transparent;
+
+}
+
+.menu__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 60%;
+    padding: 2rem 0;
+    margin-left: 2.5rem;
+    min-height: 32rem;
+    background-color: var(--color-principal);
+    box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, 0.15);
+    border-radius: 6rem;
+}
+
+.menu__option{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.menu__option:hover .menu__icon{
+    color: var(--color-secondary);
+}
+
+.menu__icon{
+    color: var(--color-icon);
+    font-size: 2.8rem;
+    transition: all 300ms ease-in-out;
+
+}
+
+.menu__overlay{
+    opacity: 0;
     display: none;
+    position: absolute;
+    display: block;
+    right: 0;
+    width: 10.7rem;
+    margin-top: -4rem;
+    background-color: var(--color-principal);
+    color: var(--color-title);
+    padding: 0.2rem 2rem;
+    transition: all 300ms ease-in-out;
+}
+
+.menu__option:hover .menu__overlay{
+    opacity: 1;
+    right: 100%;
+    border-radius: 2rem;
 }
